@@ -81,11 +81,89 @@ resources:
           notebook_task:
             notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_curated_table
             source: WORKSPACE
-        - task_key: pipeline_kpis
+        - task_key: pipeline_kpi_late_delivery_percentage
           depends_on:
             - task_key: pipeline_data_cube
           notebook_task:
-            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpis
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_late_delivery_percentage
+            source: WORKSPACE
+        - task_key: pipeline_kpi_aov
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_aov
+            source: WORKSPACE
+        - task_key: pipeline_kpi_avg_del_time
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_avg_del_time
+            source: WORKSPACE
+        - task_key: pipeline_kpi_avg_review_score_by_category
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_avg_review_score_by_category
+            source: WORKSPACE
+        - task_key: pipeline_kpi_avg_review_score_seller
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_avg_review_score_seller
+            source: WORKSPACE
+        - task_key: pipeline_kpi_clv
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_clv
+            source: WORKSPACE
+        - task_key: pipeline_kpi_new_vs_upcoming_customers
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_new_vs_upcoming_customers
+            source: WORKSPACE
+        - task_key: pipeline_kpi_order_fulfillment_rate
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_order_fulfillment_rate
+            source: WORKSPACE
+        - task_key: pipeline_kpi_orderby_city_state
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_orderby_city_state
+            source: WORKSPACE
+        - task_key: pipeline_kpi_payment_method_dist
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_payment_method_dist
+            source: WORKSPACE
+        - task_key: pipeline_kpi_percentage_low_rated_orders
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_percentage_low_rated_orders
+            source: WORKSPACE
+        - task_key: pipeline_kpi_revenue_by_month
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_revenue_by_month
+            source: WORKSPACE
+        - task_key: pipeline_kpi_top_10_products_by_revenue
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_top_10_products_by_revenue
+            source: WORKSPACE
+        - task_key: pipeline_kpi_top_10_sellers_by_revenue
+          depends_on:
+            - task_key: pipeline_data_cube
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/03_gold/Notebooks/kpi_notebook/nb_kpi_top_10_sellers_by_revenue
             source: WORKSPACE
       queue:
         enabled: true
