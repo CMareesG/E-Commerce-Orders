@@ -1,0 +1,66 @@
+resources:
+  jobs:
+    ecommerce_bronze_pipeline:
+      name: ecommerce_bronze_pipeline
+      tasks:
+        - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_schema_creation
+            source: WORKSPACE
+        - task_key: pipeline_bronze_order_items
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_order_items
+            source: WORKSPACE
+        - task_key: pipeline_bronze_customers
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_customers
+            source: WORKSPACE
+        - task_key: pipeline_bronze_geolocation
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_geolocation
+            source: WORKSPACE
+        - task_key: pipeline_bronze_order_payments
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_order_payments
+            source: WORKSPACE
+        - task_key: pipeline_bronze_order_reviews
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_order_reviews
+            source: WORKSPACE
+        - task_key: pipeline_bronze_orders
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_orders
+            source: WORKSPACE
+        - task_key: pipeline_bronze_product_category_name_translation
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_product_category_name_translation
+            source: WORKSPACE
+        - task_key: pipeline_bronze_products
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_products
+            source: WORKSPACE
+        - task_key: pipeline_bronze_sellers
+          depends_on:
+            - task_key: pipeline_bronze_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/01_bronze/Notebooks/nb_ingest_sellers
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
