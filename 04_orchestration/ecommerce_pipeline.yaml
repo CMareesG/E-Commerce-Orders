@@ -1,0 +1,20 @@
+resources:
+  jobs:
+    ecommerce_pipeline:
+      name: ecommerce_pipeline
+      tasks:
+        - task_key: ecommerce_bronze_job
+          run_job_task:
+            job_id: 513587277858155
+        - task_key: ecommerce_silver_job
+          depends_on:
+            - task_key: ecommerce_bronze_job
+          run_job_task:
+            job_id: 1092182326449599
+        - task_key: ecommerce_gold_job
+          depends_on:
+            - task_key: ecommerce_silver_job
+          run_job_task:
+            job_id: 325172364758411
+      queue:
+        enabled: true

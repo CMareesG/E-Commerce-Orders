@@ -1,0 +1,66 @@
+resources:
+  jobs:
+    ecommerce_silver_pipeline:
+      name: ecommerce_silver_pipeline
+      tasks:
+        - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_schema_creation
+            source: WORKSPACE
+        - task_key: pipeline_silver_customers
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_customers
+            source: WORKSPACE
+        - task_key: pipeline_silver_geolocation
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_geolocation
+            source: WORKSPACE
+        - task_key: pipeline_silver_order_items
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_order_items
+            source: WORKSPACE
+        - task_key: pipeline_silver_order_payments
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_order_payments
+            source: WORKSPACE
+        - task_key: pipeline_silver_order_reviews
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_order_reviews
+            source: WORKSPACE
+        - task_key: pipeline_silver_orders
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_orders
+            source: WORKSPACE
+        - task_key: pipeline_silver_product_category_name_translation
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_product_category_name_translation
+            source: WORKSPACE
+        - task_key: pipeline_silver_products
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_products
+            source: WORKSPACE
+        - task_key: pipeline_silver_sellers
+          depends_on:
+            - task_key: pipeline_silver_schema_creation
+          notebook_task:
+            notebook_path: /Workspace/Users/mareeswaraganapathy@gmail.com/ECommerce_Orders/02_silver/Notebooks/nb_transform_sellers
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
